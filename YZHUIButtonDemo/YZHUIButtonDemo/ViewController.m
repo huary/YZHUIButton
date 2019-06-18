@@ -54,8 +54,29 @@
     self.scrollView.frame = SCREEN_BOUNDS;
     [self.view addSubview:self.scrollView];
     
+//    CGFloat padding = 100;
+//    UIButton *button  = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [button setTitle:@"test" forState:UIControlStateNormal];
+//    [button setImage:[UIImage imageNamed:@"test"] forState:UIControlStateNormal];
+//    button.titleEdgeInsets = UIEdgeInsetsMake(0, padding/2, 0, -padding/2);
+//    button.imageEdgeInsets = UIEdgeInsetsMake(0, -padding/2, 0, padding/2);
+//    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//    button.titleLabel.backgroundColor = PURPLE_COLOR;
+//    button.imageView.backgroundColor = RED_COLOR;
+//    [button addTarget:self action:@selector(_action:) forControlEvents:UIControlEventTouchUpInside];
+
+//    button.frame = CGRectMake(SCREEN_WIDTH/2, 20, SCREEN_WIDTH/2, 100);
+//    button.backgroundColor = BLUE_COLOR;
+//    [self.scrollView addSubview:button];
+//    return;
+    
+    //@"I左T右-自定义中间距"
     YZHUIButton *btn = [self _createBtnWithTitle:@"I左T右-自定义中间距" imageName:@"test" layoutStyle:NSButtonLayoutStyleLR|NSButtonLayoutStyleCustomSpace];
     btn.origin = CGPointMake(20, 20);
+//    btn.height = 100;
+//    btn.width = SCREEN_WIDTH/2;
+//    btn.frame = CGRectMake(20, 20, SCREEN_WIDTH - 40, 100);
+    btn.contentAlignment = NSButtonContentAlignmentLeft;
     [self.scrollView addSubview:btn];
     
     CGFloat x = SCREEN_WIDTH/2;
@@ -162,6 +183,11 @@
     btn14.titleLabel.textAlignment = NSTextAlignmentRight;
     [self.scrollView addSubview:btn14];
     
+}
+
+-(void)_action:(UIButton*)button
+{
+    NSLog(@"button = %@",button);
 }
 
 - (void)didReceiveMemoryWarning {
